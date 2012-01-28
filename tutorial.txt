@@ -1,0 +1,94 @@
+ Movements
+  klhj -> play nethack ;)
+  G -> beginning of file
+  gg -> end of file
+  * -> search forwards for current word
+  # -> search backwards for current word
+  /text -> search forwards for 'text'
+  ?test -> search backwards for 'text'
+  ma -> mark current location as 'a'
+  `a -> go to mark 'a'
+  `. -> go to last edit
+  Fx -> move backwards to previous 'x' on current line
+  fx -> move forward to next 'x' on current line
+  tx -> move forward to just before next 'x' on current line
+  ^ -> move to first character on line
+  $ -> move to last character on line
+  <c-b> move a screenful backwards
+  <c-f> move a screenful forwards
+
+Changing modes
+  Into Insert mode
+  O -> into insert mode inserting a new line above
+  I -> into insert mode at beginning of current line
+  i -> into insert mode before current character
+  a -> into insert mode after current character
+  A -> into insert mode at end of current line
+  o -> into insert mode inserting a new line below
+  c{motion} -> into insert mode and cut text moved over by motion
+
+  Into visual mode
+  v -> standard shift style selection
+  V -> linewise selection
+  <c-v> -> rectangular selection
+
+Splitting windows:
+  Create horizontal and vertical splits
+     :sp  :vsp 
+  Moving between windows
+     <c-w> j  <c-w> k  <c-w> l  <c-w>  j
+  Maximize window
+     <c-w> _
+
+
+Help
+  :h <command>
+
+
+copy and paste:
+  
+
+
+Buffer Manipulation
+  Open a buffer
+    :e 
+  Close current buffer
+    :bd
+
+Tabs:
+  Open new tab
+    :tabnew
+    :tabedit % -> open this buffer in new tab
+  close tab
+    :q
+  cycle through tabs
+    gt -> forwards
+    gT -> backwards
+
+Working with vimballs
+  vim <packagename.vba>
+  :so %
+  :q
+  http://shifteleven.com/articles/2009/05/21/managing-vim-plugins-with-a-vimball
+
+
+Using a shell:
+  Download install conque
+  :ConqueTerm bash
+  
+
+
+
+
+
+Things to try:
+  <c-N> for completion
+  http://www.vim.org/scripts/script.php?script_id=2332 -> pathogen for keeping plugins tidy
+  https://github.com/ervandew/supertab
+    https://github.com/tpope/vim-fugitive -> git wrapper
+    http://www.vim.org/scripts/script.php?script_id=1658 -> NERDtree
+  http://mysite.verizon.net/astronaut/vim/index.html#GDBMGR -> gdb interface
+  https://wincent.com/products/command-t fast opening files
+
+Tips
+  http://www.rayninfo.co.uk/vimtips.html
