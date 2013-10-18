@@ -1,0 +1,7 @@
+startup_message off
+defscrollback 10000
+
+# Use C-z instead of C-a as this makes more sense for Emacs
+escape ^za
+
+autodetach on
