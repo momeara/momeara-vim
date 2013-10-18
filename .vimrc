@@ -17,6 +17,10 @@ syntax on
 " Use all the bells and whistles of Vim compared to vi
 set nocompatible
 
+" The leader key is a namespace for shortcuts
+let mapleader = ","
+
+
 " Highlight searches 
 set hlsearch
 
@@ -121,6 +125,8 @@ set virtualedit=all
 command! Q  quit
 command! W  write
 command! Wq wq 
+command! Shell ConqueTerm bash
+
 
 " If, for instance, you want your text to be nicely formatted in paragraphs
 " with no more than 78 characters on each line, then you could simply use it
@@ -246,7 +252,5 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 """"""""""""""""
 " Use pathogen to easily modify the runtime path to include all
 " " plugins under the ~/.vim/bundle directory
-"call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
-
-
+call pathogen#infect()
+call pathogen#helptags()

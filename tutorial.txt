@@ -37,6 +37,8 @@ Splitting windows:
      :sp  :vsp 
   Moving between windows
      <c-w> j  <c-w> k  <c-w> l  <c-w>  j
+  Cycle windows
+     <c-w> <c-w>
   Maximize window
      <c-w> _
 
@@ -46,7 +48,8 @@ Help
 
 
 copy and paste:
-  
+   paste from system clipboard
+   "*p 
 
 
 Buffer Manipulation
@@ -54,6 +57,10 @@ Buffer Manipulation
     :e 
   Close current buffer
     :bd
+
+Searching
+  / enter search term
+  n -> next match, N -> previous match
 
 Tabs:
   Open new tab
@@ -65,19 +72,14 @@ Tabs:
     gt -> forwards
     gT -> backwards
 
-Working with vimballs
-  vim <packagename.vba>
-  :so %
-  :q
-  http://shifteleven.com/articles/2009/05/21/managing-vim-plugins-with-a-vimball
-
 
 Using a shell:
-  Download install conque
-  :ConqueTerm bash
-  
+  :Shell  
 
-
+install packages:
+  cd momeara-vim/.vim/
+  git submodule add <git-repository>
+  git submodule init
 
 
 
