@@ -2,6 +2,6 @@ Matthew O'Meara's vim configuration information
 
 To use:
 
-  git clone git://github.com/momeara/momeara-vim.git
+  git clone https://github.com/momeara/momeara-vim.git
   ln -s momeara-vim/.vimrc ~/.vimrc
   ln -s momeara-vim/.vim ~/.vim
