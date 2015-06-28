@@ -49,7 +49,10 @@
 	(ido-mode t))
 
 (use-package web-mode
-	:ensure t)
+	:ensure t
+	:config
+	(put 'narrow-to-region 'disabled nil))
+
 
 ; Enable syntax hilighting
 (global-font-lock-mode 1)
@@ -64,6 +67,8 @@
 (define-key esc-map [f12]     'dabbrev-completion)
 
 (put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
 
 ; put the current function in the bottom buffer
 (which-function-mode t)
@@ -99,5 +104,3 @@
 
 
 
-(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-(put 'narrow-to-region 'disabled nil)
