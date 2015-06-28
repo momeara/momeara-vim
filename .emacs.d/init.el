@@ -12,34 +12,42 @@
 (require 'use-package)
 
 (use-package helm
-	:ensure t)
+  :ensure t)
 	
 (use-package magit
-	:ensure t)
+  :ensure t
+  :config
+  (setq magit-last-seen-setup-instructions "1.4.0"))
 
 
-(use-package ess
-	:ensure t
-	:config
-	(ess-toggle-underscore nil)
-	(setq ess-fancy-comments nil))
+(use-package ess-site
+  :ensure ess
+  :config (progn
+	(setq ess-eval-visibly-p nil
+	      ess-use-tracebug t
+	      ess-use-auto-complete t
+	      ess-help-own-frame 'one
+	      ess-ask-for-ess-directory nil
+	      ess-fancy-comments nil)
+	(setq-default ess-dialect "R")
+	(ess-toggle-underscore nil)))
+  
 
-	
 (use-package comint
-	:config
-	(setq comint-scroll-to-bottom-on-input t)
-	(setq comint-scroll-to-bottom-on-output t)
-	(setq comint-move-point-for-output t))
+  :config
+  (setq comint-scroll-to-bottom-on-input t)
+  (setq comint-scroll-to-bottom-on-output t)
+  (setq comint-move-point-for-output t))
 
 ; when two buffers are opened with the same name, they have the first
 ; unique subdirectory appeneded to the end of the buffer name to help
 ; distinguish the files
 (use-package uniquify
-	:config
-	(setq uniquify-buffer-name-style 'reverse)
-	(setq uniquify-separator "/")
-	(setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified         
-	(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers 
+  :config
+  (setq uniquify-buffer-name-style 'reverse)
+  (setq uniquify-separator "/")
+  (setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified         
+  (setq uniquify-ignore-buffers-re "^\\*")) ; don't muck with special buffers 
 
 ; ido mode helps quickly open files, switch buffers etc.
 ; remember:
@@ -47,15 +55,24 @@
 ;   C-d -> open dired
 ;   C-j -> create new file (becuase enter would open the closest matching file)
 (use-package ido
-	:ensure t
-	:config
-	(setq ido-enable-flex-matching t)
-	(ido-mode t))
+  :ensure t
+  :init (progn
+	  (ido-mode 1) (ido-everywhere 1))
+  :config
+  (progn
+    (setq ido-case-fold t)
+    (setq ido-everywhere t)
+    (setq ido-enable-prefix nil)
+    (setq ido-enable-flex-matching t)
+    (setq ido-create-new-buffer 'always)
+    (setq ido-max-prospects 10)
+    (setq ido-use-faces nil)
+    (add-to-list 'ido-ignore-files "\\.DS_Store")))
 
 (use-package web-mode
-	:ensure t
-	:config
-	(put 'narrow-to-region 'disabled nil))
+  :ensure t
+  :config
+  (put 'narrow-to-region 'disabled nil))
 
 
 ; Enable syntax hilighting
