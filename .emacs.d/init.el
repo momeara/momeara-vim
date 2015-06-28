@@ -1,11 +1,4 @@
 ;;; Matt's Emacs init.el ;;;
-; Install packages
-;   ESS
-;   magit
-;   helm
-
-; Settings
-; key bindings
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -50,10 +43,13 @@
 ;   C-d -> open dired
 ;   C-j -> create new file (becuase enter would open the closest matching file)
 (use-package ido
+	:ensure t
 	:config
 	(setq ido-enable-flex-matching t)
 	(ido-mode t))
 
+(use-package web-mode
+	:ensure t)
 
 ; Enable syntax hilighting
 (global-font-lock-mode 1)
@@ -96,39 +92,12 @@
   (c-set-offset 'statement-cont '+)
   (c-set-offset 'stream-op '0)
   (c-set-offset 'defun-block-intro '+)
-  
-  ;; trying this one out for instances like
-  ;; typedef
-  ;; 	foo
-  ;;	bar;
-  ;; using '+ screws up
-  ;; void
-  ;;    fun();
-  ;;(c-set-offset 'topmost-intro-cont '+)
-
-  ;; tyring this out for instances like
-  ;; type<
-  ;; 	typea > foo;
   (c-set-offset 'template-args-cont '+)
  )
 (add-hook 'c-mode-common-hook 'rosetta-c++-mode-hook)
 
 
-;(defun rosetta-ess-mode-hook ()
-;  ;; RosettaCommons Syntax style for S/R code
-;
-;ftp://ftp.stat.math.ethz.ch/ESS/ESS_html-o/ess_12.html
-;http://ess.r-project.org/Manual/ess.html#Indenting
-;
-; Things to I would like to fix:
-;  arguments that are on new lines
-; )
-;(add-hook 'ess-mode-hook 'rosetta-ess-mode-hook)
 
 
-
-
-(setq load-path (cons "/home/momeara/opt/" load-path))
-(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (put 'narrow-to-region 'disabled nil)
