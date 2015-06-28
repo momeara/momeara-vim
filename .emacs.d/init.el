@@ -1,7 +1,9 @@
 ;;; Matt's Emacs init.el ;;;
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 (if (not (package-installed-p 'use-package))
 	(progn
@@ -9,17 +11,19 @@
       (package-install 'use-package)))
 (require 'use-package)
 
-(use-package ess-site
-	:ensure t
-	:config
-	(ess-toggle-underscore nil)
-	(setq ess-fancy-comments nil))
-
 (use-package helm
 	:ensure t)
 	
 (use-package magit
 	:ensure t)
+
+
+(use-package ess
+	:ensure t
+	:config
+	(ess-toggle-underscore nil)
+	(setq ess-fancy-comments nil))
+
 	
 (use-package comint
 	:config

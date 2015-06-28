@@ -1,7 +1,9 @@
-Matthew O'Meara's vim configuration information
+Matthew O'Meara's configuration information
 
 To use:
 
   git clone https://github.com/momeara/momeara-vim.git
-  ln -s momeara-vim/.vimrc ~/.vimrc
-  ln -s momeara-vim/.vim ~/.vim
+  cd momeara-vim
+  ln -s $(pwd)/.emacs.d ~/
+  ln -s $(pwd)/.vimrc ~/
+  ln -s $(pwd)/.vim ~/
