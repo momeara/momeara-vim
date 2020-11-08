@@ -82,10 +82,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias em='emacs -nw'
-alias kure='ssh kure.unc.edu'
-
-PATH="$PATH:/home/momeara/opt/bin"; export PATH
-
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
