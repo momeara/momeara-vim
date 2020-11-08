@@ -1,9 +1,9 @@
 ;;; Matt's Emacs init.el ;;;
 
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
 (package-initialize)
 (if (not (package-installed-p 'use-package))
 	(progn
@@ -102,7 +102,16 @@
 ;; Your init file should contain only one such instance.
 ;; If there is more than one, they won't work right.
 (custom-set-variables
- '(safe-local-variable-values (quote ((rm-trailing-spaces . t) (show-trailing-whitespace . t) (rm-trailing-spaces . t)))))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (lsp-mode web-mode ess magit use-package helm)))
+ '(safe-local-variable-values
+   (quote
+    ((rm-trailing-spaces . t)
+     (show-trailing-whitespace . t)
+     (rm-trailing-spaces . t)))))
 
 ; have tabbing in c++ mode work like it should with Rosetta
 ; if you find a place where it isn't working right
@@ -125,3 +134,9 @@
 
 
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
