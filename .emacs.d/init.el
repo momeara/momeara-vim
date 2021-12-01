@@ -15,12 +15,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(comint-scroll-to-bottom-on-input nil)
- '(package-selected-packages (quote (flycheck ess magit)))
+ '(package-selected-packages
+   '(lsp-ui company lsp-mode web-mode ess magit use-package helm))
  '(safe-local-variable-values
-   (quote
-    ((rm-trailing-spaces . t)
+   '((rm-trailing-spaces . t)
      (show-trailing-whitespace . t)
-     (rm-trailing-spaces . t)))))
+     (rm-trailing-spaces . t))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,6 +44,22 @@
 
 (add-to-list 'load-path "~/opt/async")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;; Language Server Protocol ;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; https://emacs-lsp.github.io/lsp-mode/page/performance/
+;;; check with `M-x lsp-doctor`
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-completion-provider :capf)
+
+;(lsp-register-client
+;  (make-lsp-client :new-connection
+;      (lsp-stdio-connection '("R" "--slave" "-e" "languageserver::run()"))
+;      :major-modes '(ess-r-mode inferior-ess-r-mode)
+;      :server-id 'lsp-R))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; R Indention ;;;;;;;;;;;;;;;
@@ -59,7 +75,8 @@
 (setq ess-offset-arguments 'prev-line)
 (setq ess-offset-arguments-newline 'prev-line)
 (setq ess-offset-block 'prev-line)
-(setq ess-fancy-comments nil)
+(setq ess-indent-with-fancy-comments nil)
+; (setq ess-fancy-comments nil)
 (require 'ess-site)
 ; don't have have underscores automatically converted into "<-"
 (ess-toggle-underscore nil)
@@ -115,17 +132,7 @@
 
 ;; Your init file should contain only one such instance.
 ;; If there is more than one, they won't work right.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (lsp-mode web-mode ess magit use-package helm)))
- '(safe-local-variable-values
-   (quote
-    ((rm-trailing-spaces . t)
-     (show-trailing-whitespace . t)
-     (rm-trailing-spaces . t)))))
+
 
 ; have tabbing in c++ mode work like it should with Rosetta
 ; if you find a place where it isn't working right
@@ -334,12 +341,7 @@
 ;  (ess-indent-with-fancy-comments . t)))
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 

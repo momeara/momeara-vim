@@ -18,4 +18,6 @@
         ; list of packages to be installed
         '(magit
 	  ess
-	  flycheck))
+	  flycheck
+	  lsa-mode
+	  company))
