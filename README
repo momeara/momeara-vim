@@ -4,6 +4,6 @@ To use:
 
   git clone https://github.com/momeara/momeara-vim.git
   cd momeara-vim
-  ln -s $(pwd)/.emacs.d ~/
+  make setup_emacs
   ln -s $(pwd)/.vimrc ~/
   ln -s $(pwd)/.vim ~/

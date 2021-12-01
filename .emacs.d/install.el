@@ -19,5 +19,5 @@
         '(magit
 	  ess
 	  flycheck
-	  lsa-mode
+	  lsp-mode
 	  company))
